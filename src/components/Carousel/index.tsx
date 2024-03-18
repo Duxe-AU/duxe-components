@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
-import useSlider from "./useSlider"
-import "./App.css"
+import useSlider from "../../useSlider";
+import "./index.css"
 
-type CarouselProps = {
+export type CarouselProps = {
   children?: ReactNode[];
   transitionDuration?: number;
   showIndicators?: boolean;
