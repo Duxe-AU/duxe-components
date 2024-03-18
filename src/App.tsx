@@ -21,7 +21,9 @@ function Carousel({
     previousSlide,
     nextSlide,
     handleJumpSlide,
-  } = useSlider({ items: children, config: { transitionDuration }});
+  } = useSlider({ items: children, config: {
+    transitionDuration,
+  }});
 
   return (
     <div className="slider">

@@ -10,6 +10,10 @@ interface UseSliderProps<T> {
     numQueues?: number;
     transitionDuration?: number;
     includeNextPrevious?: boolean;
+    autoRoll?: {
+      enabled?: boolean;
+      interval?: number;
+    }
   }
 }
 
@@ -21,12 +25,15 @@ export default function useSlider<T>({
     numQueues = 3,
     transitionDuration = 500,
     includeNextPrevious = true,
+    autoRoll,
   } = {},
 }: UseSliderProps<T>) {
   const [queue, setQueue] = useState<T[]>([]);
   const [transitioning, setTransitioning] = useState(false);
   const direction = useRef<"prev" | "next">();
   const currentSlide = useRef(startIndex);
+  const autoRollInterval = useRef<number>();
+  const autoRollPaused = useRef<boolean>(false);
 
   const getQueue = useCallback((index: number = 0) => {
     if (items.length == 0) return [];
@@ -58,28 +65,64 @@ export default function useSlider<T>({
 
   const activeData = useMemo(() => queue[highlightIndex], [queue, highlightIndex]);
 
-  const previousSlide = useCallback(() => {
-    setTransitioning(true);
-    direction.current = "prev";
-    currentSlide.current = (currentSlide.current - 1 + items.length) % items.length;
-    setTimeout(() => {
-      setQueue(getQueue(currentSlide.current));
-      setTransitioning(false);
-    }, transitionDuration);
-  }, [items, transitionDuration, getQueue])
-
   const nextSlide = useCallback(() => {
-    setTransitioning(true);
     direction.current = "next";
     currentSlide.current = (currentSlide.current + 1) % items.length;
+    setTransitioning(true);
     setTimeout(() => {
       setQueue(getQueue(currentSlide.current));
       setTransitioning(false);
+
+      if (autoRoll && autoRollPaused.current) {
+        autoRollInterval.current = setInterval(() => {
+          nextSlide();
+          autoRollPaused.current = false;
+        }, autoRoll.interval);
+      }
     }, transitionDuration);
-  }, [items, transitionDuration, getQueue])
+  }, [items, transitionDuration, getQueue, autoRoll])
+
+  const previousSlide = useCallback(() => {
+    direction.current = "prev";
+    currentSlide.current = (currentSlide.current - 1 + items.length) % items.length;
+    setTransitioning(true);
+    setTimeout(() => {
+      setQueue(getQueue(currentSlide.current));
+      setTransitioning(false);
+
+      if (autoRoll && autoRollPaused.current) {
+        autoRollInterval.current = setInterval(() => {
+          nextSlide();
+          autoRollPaused.current = false;
+        }, autoRoll.interval);
+      }
+    }, transitionDuration);
+  }, [items, transitionDuration, getQueue, autoRoll, nextSlide])
+
+  const hanldePreviousSlideClick = useCallback(() => {
+    clearInterval(autoRollInterval.current);
+    autoRollPaused.current = true;
+    previousSlide();
+  }, [previousSlide])
+
+  const hanldeNextSlideClick = useCallback(() => {
+    clearInterval(autoRollInterval.current);
+    autoRollPaused.current = true;
+    nextSlide();
+  }, [nextSlide])
 
   useEffect(() => {
     setQueue(getQueue(currentSlide.current));
+
+    if (autoRoll?.enabled && autoRoll.interval) {
+      autoRollInterval.current = setInterval(() => {
+        nextSlide();
+      }, autoRoll.interval);
+    }
+
+    return () => {
+      clearInterval(autoRollInterval.current);
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -108,12 +151,21 @@ export default function useSlider<T>({
     currentSlide.current = nodeIndex;
 
     setTransitioning(true);
+    clearInterval(autoRollInterval.current);
+    autoRollPaused.current = true;
 
     setTimeout(() => {
       setTransitioning(false);
       setQueue(getQueue(nodeIndex));
+
+      if (autoRoll && autoRollPaused.current) {
+        autoRollInterval.current = setInterval(() => {
+          nextSlide();
+          autoRollPaused.current = false;
+        }, autoRoll.interval);
+      }
     }, transitionDuration);
-  }, [items, transitionDuration, getQueue, nextSlide, previousSlide]);
+  }, [items, transitionDuration, getQueue, nextSlide, previousSlide, autoRoll]);
 
   return {
     direction: direction.current,
@@ -122,8 +174,8 @@ export default function useSlider<T>({
     transitioning,
     activeData,
     getQueue,
-    previousSlide,
-    nextSlide,
+    previousSlide: hanldePreviousSlideClick,
+    nextSlide: hanldeNextSlideClick,
     reset,
     handleJumpSlide,
   };
