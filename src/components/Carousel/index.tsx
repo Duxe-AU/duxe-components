@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import useSlider from "../../useSlider";
+import useSlider from "../../hooks/useSlider";
 import "./index.css"
 
 export type CarouselProps = {

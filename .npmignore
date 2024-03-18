@@ -1,4 +1,4 @@
-# Rules from: C:\Users\HarveyDelaCruz\Documents\Git\duxe-slider\.gitignore
+# Rules from: C:\Users\HarveyDelaCruz\Documents\Git\duxe-components\.gitignore
 # Logs
 logs
 *.log
@@ -9,7 +9,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
 dist-ssr
 *.local
 
@@ -28,3 +27,5 @@ dist-ssr
 # npmignore - content above this line is automatically generated and modifications may be omitted
 # see npmjs.com/npmignore for more details.
 test/
+src/main.tsx
+index.html
