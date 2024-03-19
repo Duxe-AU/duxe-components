@@ -17,7 +17,7 @@ interface UseSliderProps<T> {
   }
 }
 
-export default function useSlider<T>({
+function useSlider<T>({
   items,
   config: {
     startIndex = 0,
@@ -32,7 +32,7 @@ export default function useSlider<T>({
   const [transitioning, setTransitioning] = useState(false);
   const direction = useRef<"prev" | "next">();
   const currentSlide = useRef(startIndex);
-  const autoRollInterval = useRef<number>();
+  const autoRollInterval = useRef<NodeJS.Timeout>();
   const autoRollPaused = useRef<boolean>(false);
 
   const getQueue = useCallback((index: number = 0) => {
@@ -180,3 +180,5 @@ export default function useSlider<T>({
     handleJumpSlide,
   };
 }
+
+export { useSlider }

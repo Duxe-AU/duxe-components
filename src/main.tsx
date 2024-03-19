@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import { Carousel } from '.'
+import { Carousel } from './components/Carousel'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

@@ -1,6 +1,8 @@
+"use client"
+
 import { ReactNode } from "react";
-import useSlider from "../../hooks/useSlider";
-import "./index.css"
+import { useSlider } from "../../hooks/useSlider";
+import styles from "./index.module.css";
 
 export type CarouselProps = {
   children?: ReactNode[];
@@ -26,24 +28,24 @@ function Carousel({
   }});
 
   return (
-    <div className="slider">
+    <div className={`${styles.slider}`}>
       <button
         onClick={previousSlide}
-        className="controls previous"
+        className={`${styles.controls} ${styles.previous}`}
         disabled={transitioning}
       ></button>
       <button
         onClick={nextSlide}
-        className="controls next"
+        className={`${styles.controls} ${styles.next}`}
         disabled={transitioning}
       ></button>
 
-      <div className="content">
+      <div className={`${styles.content}`}>
         {queue.map((node, index) => {
           return (
             <div
               key={index}
-              className="item"
+              className={`${styles.item}`}
               style={queue.length == 1
                 ? {}
                 : {
@@ -62,7 +64,7 @@ function Carousel({
         })}
       </div>
 
-      {showIndicators && <div className="indicators">
+      {showIndicators && <div className={`${styles.indicators}`}>
         {children.map((node, index) => {
           return (
             <button
@@ -81,4 +83,4 @@ function Carousel({
   )
 }
 
-export default Carousel
+export { Carousel }
