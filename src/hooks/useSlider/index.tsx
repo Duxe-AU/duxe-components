@@ -17,7 +17,7 @@ interface UseSliderProps<T> {
   }
 }
 
-function useSlider<T>({
+export function useSlider<T>({
   items,
   config: {
     startIndex = 0,
@@ -180,5 +180,3 @@ function useSlider<T>({
     handleJumpSlide,
   };
 }
-
-export { useSlider }

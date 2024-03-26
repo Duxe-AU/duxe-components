@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
 import path from 'path';
+import preserveDirectives from "rollup-plugin-preserve-directives";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,6 +11,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, "index.ts"),
       name: "DuxeComponents",
+      formats: ["es"],
       fileName: (format) => `index.${format}.js`
     },
     rollupOptions: {
@@ -18,8 +20,12 @@ export default defineConfig({
         globals: {
           react: "React",
           "react-dom": "ReactDOM"
-        }
-      }
+        },
+        inlineDynamicImports: false,
+        preserveModules: true,
+      },
+      preserveEntrySignatures: 'allow-extension',
+      plugins: [preserveDirectives()],
     },
     sourcemap: true,
     emptyOutDir: true,
