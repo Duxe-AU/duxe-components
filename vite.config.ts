@@ -2,24 +2,32 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
 import path from 'path';
+import preserveDirectives from "rollup-plugin-preserve-directives";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), dts()],
   build: {
     lib: {
-      entry: path.resolve(__dirname, "index.ts"),
+      entry: path.resolve(__dirname, "src/index.ts"),
       name: "DuxeComponents",
-      fileName: (format) => `index.${format}.js`
+      formats: ["es"],
+      fileName: "index.[format].js"
     },
     rollupOptions: {
-      external: ["react", "react-dom"],
+      external: ["react", "react-dom", "react/jsx-runtime"],
       output: {
+        entryFileNames: "[name].[format].js",
         globals: {
-          react: "React",
-          "react-dom": "ReactDOM"
-        }
-      }
+          'react': 'react',
+          'react-dom': 'ReactDOM',
+          'react/jsx-runtime': 'react/jsx-runtime',
+        },
+        inlineDynamicImports: false,
+        preserveModules: true,
+      },
+      preserveEntrySignatures: 'allow-extension',
+      plugins: [preserveDirectives()],
     },
     sourcemap: true,
     emptyOutDir: true,
