@@ -10,7 +10,7 @@ export type CarouselProps = {
   showIndicators?: boolean;
 }
 
-function Carousel({
+export function Carousel({
   children = [],
   transitionDuration = 500,
   showIndicators = true,
@@ -28,7 +28,7 @@ function Carousel({
   }});
 
   return (
-    <div className={`${styles.slider}`}>
+    <div className={styles.slider}>
       <button
         onClick={previousSlide}
         className={`${styles.controls} ${styles.previous}`}
@@ -40,12 +40,12 @@ function Carousel({
         disabled={transitioning}
       ></button>
 
-      <div className={`${styles.content}`}>
+      <div className={styles.content}>
         {queue.map((node, index) => {
           return (
             <div
               key={index}
-              className={`${styles.item}`}
+              className={styles.item}
               style={queue.length == 1
                 ? {}
                 : {
@@ -64,7 +64,7 @@ function Carousel({
         })}
       </div>
 
-      {showIndicators && <div className={`${styles.indicators}`}>
+      {showIndicators && <div className={styles.indicators}>
         {children.map((node, index) => {
           return (
             <button
@@ -82,5 +82,3 @@ function Carousel({
     </div>
   )
 }
-
-export { Carousel }
