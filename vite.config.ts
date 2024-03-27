@@ -9,10 +9,10 @@ export default defineConfig({
   plugins: [react(), dts()],
   build: {
     lib: {
-      entry: path.resolve(__dirname, "index.ts"),
+      entry: path.resolve(__dirname, "src/index.ts"),
       name: "DuxeComponents",
       formats: ["es"],
-      fileName: (format) => `index.${format}.js`
+      fileName: "index.[format].js"
     },
     rollupOptions: {
       external: ["react", "react-dom", "react/jsx-runtime"],
