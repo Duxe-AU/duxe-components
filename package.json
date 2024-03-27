@@ -1,6 +1,6 @@
 {
   "name": "duxe-components",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "homepage": "https://github.com/Duxe-AU/duxe-components",
   "main": "dist/index.umd.js",
