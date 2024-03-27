@@ -14,6 +14,10 @@ npm install duxe-components
 The following components are available and ready for use:
 - [Carousel](/src/components/Carousel/README.md)
 
+## Hooks
+The following hooks are available and ready for use:
+- [useSlider](/src/hooks/useSlider/README.md)
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
