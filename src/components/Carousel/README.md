@@ -22,9 +22,10 @@ export default App
 
 ## Props
 This component also accepts the following props:
-| Prop                   | Type      | Required? | Description                                                                     | Default Value |
-| ---------------------- | --------- | --------- | ------------------------------------------------------------------------------- | ------------- |
-| `transitionDuration`   | `number`  | No        | Sets the duration of the transition between slides (in milliseconds).           | `500`         |
-| `showIndicators`       | `boolean` | No        | Determines whether dot indicators are displayed at the bottom of the component. | `true`       |
+| Prop                   | Type           | Required? | Description                                                                     | Default Value |
+| ---------------------- | -------------- | --------- | ------------------------------------------------------------------------------- | ------------- |
+| `children`             | `ReactNode[]`  | Yes       | The child elements to be rendered within the component.                         | undefined     |
+| `transitionDuration`   | `number`       | No        | Sets the duration of the transition between slides (in milliseconds).           | `500`         |
+| `showIndicators`       | `boolean`      | No        | Determines whether dot indicators are displayed at the bottom of the component. | `true`        |
 
 This component is uses the [useSlider](../../hooks/useSlider/README.md) hook. If you prefer, you can utilize this hook independently to craft your personalized Carousel/Slider component.

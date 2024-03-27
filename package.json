@@ -14,7 +14,9 @@
     }
   },
   "files": [
-    "/dist"
+    "/dist",
+    "/src/components/**/README.md",
+    "/src/hooks/**/README.md"
   ],
   "scripts": {
     "dev": "vite",

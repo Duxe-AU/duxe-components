@@ -3,13 +3,16 @@
 The `useSlider` hook is a utility for managing a slider/carousel functionality in React applications. It allows you to easily create dynamic sliding interfaces with customizable options.
 
 ## Parameters
-This hook accepts an object parameter
-| Key      | Type     | Required? | Description
-| -------- | -------- | --------- | --------------
-| `items`  | `T[]`    | Yes       | An array of items to be displayed in the slider
-| `config` | `object` | No        | An optional configuration object to customize the behavior of the slider.
+
+This hook accepts an object parameter:
+
+| Key      | Type       | Required? | Description                                              |
+| -------- | ---------- | --------- | -------------------------------------------------------- |
+| `items`  | `T[]`      | Yes       | An array of items to be displayed in the slider          |
+| `config` | `object`   | No        | An optional configuration object to customize the behavior of the slider. |
 
 #### Config
+
 - `startIndex?: number:` The index of the item to start the slider from. Default is `0`.
 - `highlightIndex?: number:` The index of the item to highlight initially. Default is `0`.
 - `numQueues?: number:` The number of items to display in the slider at once. Default is `3`.
@@ -20,20 +23,25 @@ This hook accepts an object parameter
     - `interval?: number:` The interval between automatic slides (in milliseconds). Default is `5000`.
 
 ## Return
+
 This hook returns the following object:
-- `direction`: The direction of sliding ("next" or "prev").
-- `currentSlide`: The index of the current slide.
-- `queue`: The array of items currently visible in the slider.
-- `transitioning`: A boolean indicating whether the slider is currently transitioning between slides.
-- `activeData`: The data of the currently active item.
-- `previousSlide`: A function to navigate to the previous slide.
-- `nextSlide`: A function to navigate to the next slide.
-- `handleJumpSlide`: A function to navigate to a specific slide by index Accepts a `number` parameter as destination index.
-- `reset`: A function to reset the slider to its initial state.
+
+| Key               | Type       | Description                                                                                             |
+| ----------------- | ---------- | ------------------------------------------------------------------------------------------------------- |
+| `direction`       | `string`   | The direction of sliding ("next" or "prev").                                                            |
+| `currentSlide`    | `number`   | The index of the current slide.                                                                         |
+| `queue`           | `T[]`      | The array of items currently visible in the slider.                                                     |
+| `transitioning`   | `boolean`  | A boolean indicating whether the slider is currently transitioning between slides.                      |
+| `activeData`      | `T`        | The data of the currently active item.                                                                  |
+| `previousSlide`   | `function` | A function to navigate to the previous slide.                                                           |
+| `nextSlide`       | `function` | A function to navigate to the next slide.                                                               |
+| `handleJumpSlide` | `function` | A function to navigate to a specific slide by index. Accepts a `number` parameter as destination index. |
+| `reset`           | `function` | A function to reset the slider to its initial state.                                                    |
+
 
 ## Example styled width TailwindCSS:
 ```jsx
-import useSlider from "@/lib/hooks/useSlider"
+import useSlider from "duxe-components"
 import { ReactNode } from "react"
 
 type SliderProps = {
@@ -47,9 +55,7 @@ export default function Slider({ children }: SliderProps) {
     direction,
     currentSlide,
     transitioning,
-    activeData,
     queue,
-    reset,
   } = useSlider({ items: children, });
 
   return (
