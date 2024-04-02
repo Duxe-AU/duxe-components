@@ -22,6 +22,7 @@ export default defineConfig({
           'react': 'react',
           'react-dom': 'ReactDOM',
           'react/jsx-runtime': 'react/jsx-runtime',
+          'modern-normalize': 'modern-normalize',
         },
         inlineDynamicImports: false,
         preserveModules: true,
