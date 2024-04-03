@@ -3,10 +3,11 @@
 import { ReactNode, useEffect } from "react";
 import styles from "./index.module.css";
 
-interface ModalProps {
+export type ModalProps = {
   children: ReactNode;
   showCloseButton?: boolean;
   closeOnOutsideClick?: boolean;
+  backgroundBlur?: 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1;
   onClose?: () => void;
 }
 
@@ -14,6 +15,7 @@ export function Modal({
   children,
   showCloseButton = true,
   closeOnOutsideClick = true,
+  backgroundBlur = 0.8,
   onClose,
 }: ModalProps) {
   useEffect(() => {
@@ -36,6 +38,7 @@ export function Modal({
     <div className={styles.root}>
       <div
         className={styles.backgroundOverlay}
+        style={{ opacity: backgroundBlur, }}
         onClick={() => {
           if (closeOnOutsideClick) onClose?.()
         }}

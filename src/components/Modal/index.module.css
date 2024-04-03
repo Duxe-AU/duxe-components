@@ -15,13 +15,12 @@
   width: inherit;
   height: inherit;
   background-color: #111111;
-  opacity: 0.8;
 }
 
 .modal {
   position: relative;
   overflow-y: auto;
-  width: max-content;
+  width: auto;
   height: auto;
 }
 
