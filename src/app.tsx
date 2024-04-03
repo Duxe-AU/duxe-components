@@ -11,12 +11,14 @@ export default function App() {
           modal.showModal((
             <div style={{
               height: 360,
-              width: 480,
+              maxWidth: 480,
               backgroundColor: "#eee",
             }}>
               <h1>Hello world</h1>
             </div>
-          ));
+          ), {
+            backgroundBlur: 1,
+          });
         }}
       >Click me</button>
     </div>
