@@ -28,4 +28,5 @@ dist-ssr
 # see npmjs.com/npmignore for more details.
 test/
 src/main.tsx
+src/app.tsx
 index.html
