@@ -12,11 +12,15 @@ npm install duxe-components
 
 ## Components
 The following components are available and ready for use:
-- [Carousel](/src/components/Carousel/README.md)
+- [DuxeComponentsProvider](https://github.com/Duxe-AU/duxe-components/blob/main/src/providers/README.md)
+- [Carousel](https://github.com/Duxe-AU/duxe-components/blob/main/src/components/Carousel/README.md)
+- [Modal](https://github.com/Duxe-AU/duxe-components/blob/main/src/components/Carousel/README.md)
 
 ## Hooks
 The following hooks are available and ready for use:
-- [useSlider](/src/hooks/useSlider/README.md)
+- [useHubspot](https://github.com/Duxe-AU/duxe-components/blob/main/src/hooks/useHubspot/README.md)
+- [useModal](https://github.com/Duxe-AU/duxe-components/blob/main/src/hooks/useModal/README.md)
+- [useSlider](https://github.com/Duxe-AU/duxe-components/blob/main/src/hooks/useSlider/README.md)
 
 ## License
 

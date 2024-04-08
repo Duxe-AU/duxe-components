@@ -16,9 +16,7 @@ export default function App() {
             }}>
               <h1>Hello world</h1>
             </div>
-          ), {
-            backgroundBlur: 1,
-          });
+          ));
         }}
       >Click me</button>
     </div>

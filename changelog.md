@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.0] - 2024-04-08
+### Added
+- New DuxeComponentsProvider wrapper component
+- New Modal coomponent
+- New useModal hook
+- Added support for embedding HubSpot forms
+- New useHubspot hook
+
 ## [0.0.1] - 2024-03-28
 ### Added
 - Added support for "use client" and "use server" directives

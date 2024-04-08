@@ -20,8 +20,8 @@
 .modal {
   position: relative;
   overflow-y: auto;
-  width: auto;
-  height: auto;
+  width: inherit;
+  height: inherit;
 }
 
 .closeButton {
