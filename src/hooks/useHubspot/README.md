@@ -28,7 +28,9 @@ More information can be found [here](https://github.com/Duxe-AU/duxe-components/
 
 ## Return
 
-This hook returns the Hubspot Forms API object. More information can be found [here](https://legacydocs.hubspot.com/docs/methods/forms/advanced_form_options)
+This hook returns the Hubspot Forms API object. More information can be found here.
+- [Setting up your tracking script](https://knowledge.hubspot.com/reports/install-the-hubspot-tracking-code)
+- [Forms API](https://legacydocs.hubspot.com/docs/methods/forms/advanced_form_options)
 
 ## Example styled width TailwindCSS:
 ```jsx
