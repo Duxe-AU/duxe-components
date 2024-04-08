@@ -2,6 +2,14 @@
 
 This component acts as a centralized container within your React application that encapsulates the context providers.
 
+## Props
+
+This component also accepts the following props:
+
+| Prop                   | Type                  | Required? | Description                                                                     |
+| ---------------------- | --------------------- | --------- | ------------------------------------------------------------------------------- |
+| `hubspot`              | `HubspotProvierProps` | No        | Configuration for the [`useHubspot`](https://github.com/Duxe-AU/duxe-components/blob/main/src/hooks/useHubspot/README.md) hook |
+
 ## Usage
 
 ```jsx
@@ -20,4 +28,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 ```
 
 The following are the context providers encapsulated in this component:
+- HubspotProvider
 - ModalsProvider
