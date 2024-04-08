@@ -35,7 +35,12 @@ export function ModalProvider({ children }: ModalProviderProps) {
   const { onClose, ...props } = modalProps as ModalProps;
 
   useEffect(() => {
-    if (!visible) setModalProps({});
+    if (!visible) {
+      document.body.style.position = "relative";
+      setModalProps({});
+    } else {
+      document.body.style.position = "unset";
+    }
   }, [visible])
 
   useEffect(() => {
