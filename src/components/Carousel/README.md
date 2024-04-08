@@ -28,4 +28,4 @@ This component also accepts the following props:
 | `transitionDuration`   | `number`       | No        | Sets the duration of the transition between slides (in milliseconds).           | `500`         |
 | `showIndicators`       | `boolean`      | No        | Determines whether dot indicators are displayed at the bottom of the component. | `true`        |
 
-This component is uses the [useSlider](../../hooks/useSlider/README.md) hook. If you prefer, you can utilize this hook independently to craft your personalized Carousel/Slider component.
+This component is uses the [useSlider](https://github.com/Duxe-AU/duxe-components/blob/main/src/hooks/useSlider/README.md) hook. If you prefer, you can utilize this hook independently to craft your personalized Carousel/Slider component.
