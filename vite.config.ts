@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
 import path from 'path';
 import preserveDirectives from "rollup-plugin-preserve-directives";
+import image from "@rollup/plugin-image";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -28,7 +29,7 @@ export default defineConfig({
         preserveModules: true,
       },
       preserveEntrySignatures: 'allow-extension',
-      plugins: [preserveDirectives()],
+      plugins: [preserveDirectives(), image()],
     },
     sourcemap: true,
     emptyOutDir: true,

@@ -2,6 +2,7 @@
 
 import { ReactNode, useEffect } from "react";
 import styles from "./index.module.css";
+import icon from "../../assets/icons/x.svg";
 
 export type ModalProps = {
   children: ReactNode;
@@ -36,16 +37,18 @@ export function Modal({
 
   return (
     <div className={styles.root}>
+      <div className={styles.backgroundOverlay}></div>
       <div
-        className={styles.backgroundOverlay}
+        className={styles.modal}
         style={{ opacity: backgroundBlur, }}
         onClick={() => {
           if (closeOnOutsideClick) onClose?.()
         }}
-      ></div>
-      <div className={styles.modal}>
+      >
         {/* Close Button */}
-        {showCloseButton && <button onClick={() => onClose?.()} className={styles.closeButton}>X</button>}
+        {showCloseButton && <button onClick={() => onClose?.()} className={styles.closeButton}>
+          <img src={icon} />
+        </button>}
         {children}
       </div>
     </div>
