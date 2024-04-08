@@ -1,6 +1,6 @@
 {
   "name": "duxe-components",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "type": "module",
   "homepage": "https://github.com/Duxe-AU/duxe-components",
   "main": "dist/index.umd.js",
@@ -14,9 +14,7 @@
     }
   },
   "files": [
-    "/dist",
-    "/src/components/**/README.md",
-    "/src/hooks/**/README.md"
+    "/dist"
   ],
   "scripts": {
     "dev": "vite",
@@ -30,6 +28,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@rollup/plugin-image": "^3.0.3",
     "@types/node": "^20.11.28",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
