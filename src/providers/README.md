@@ -6,9 +6,9 @@ This component acts as a centralized container within your React application tha
 
 This component also accepts the following props:
 
-| Prop                   | Type                  | Required? | Description                                                                     |
-| ---------------------- | --------------------- | --------- | ------------------------------------------------------------------------------- |
-| `hubspot`              | `HubspotProvierProps` | No        | Configuration for the [`useHubspot`](https://github.com/Duxe-AU/duxe-components/blob/main/src/hooks/useHubspot/README.md) hook |
+| Prop                   | Type                   | Required? | Description                                                                     |
+| ---------------------- | ---------------------- | --------- | ------------------------------------------------------------------------------- |
+| `hubspot`              | `HubspotProviderProps` | No        | Configuration for the [`useHubspot`](https://github.com/Duxe-AU/duxe-components/blob/main/src/hooks/useHubspot/README.md) hook |
 
 ## Usage
 
