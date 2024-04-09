@@ -14,7 +14,7 @@ npm install duxe-components
 The following components are available and ready for use:
 - [DuxeComponentsProvider](https://github.com/Duxe-AU/duxe-components/blob/main/src/providers/README.md)
 - [Carousel](https://github.com/Duxe-AU/duxe-components/blob/main/src/components/Carousel/README.md)
-- [Modal](https://github.com/Duxe-AU/duxe-components/blob/main/src/components/Carousel/README.md)
+- [Modal](https://github.com/Duxe-AU/duxe-components/blob/main/src/components/Modal/README.md)
 
 ## Hooks
 The following hooks are available and ready for use:
